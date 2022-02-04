@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams } from "react-router";
-import { useHistory } from "react-router-dom";
 import { Characters } from "../models/Characters";
 
 const CharterScreen = ({ history }) => {
@@ -17,6 +16,7 @@ const CharterScreen = ({ history }) => {
     <div className="container row mt-3">
       <div className="col-8">
         <img
+          loading="lazy"
           src={src}
           className="card-img-top"
           style={{

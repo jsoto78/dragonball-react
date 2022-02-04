@@ -8,7 +8,7 @@ const ManScreen = () => {
     }
   });
   return (
-    <div className="conteiner mt-3">
+    <div className="container mt-3">
       <h1>Mans Screen</h1>
       <hr />
       <div className="row">

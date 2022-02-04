@@ -1,14 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useContext } from "react";
+import { Switch, BrowserRouter as Router } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
+import PrivateRouter from "./PrivateRouter";
+import PublicRoutee from "./PublicRoutee";
 import Login from "../pages/Login";
 import AppRouter from "./AppRouter";
+
 const LoginRouter = () => {
+  const { log } = useContext(AuthContext);
   return (
     <Router>
       <Switch>
-        <Route exact path="/login" component={Login} />
+        <PublicRoutee component={Login} auth={log} path="/login" />
+        <PrivateRouter component={AppRouter} auth={log} path="/" />
       </Switch>
-      <AppRouter />
     </Router>
   );
 };
