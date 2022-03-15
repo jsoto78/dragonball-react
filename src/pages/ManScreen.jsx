@@ -2,11 +2,7 @@ import React from "react";
 import Card from "../components/Card";
 import { Characters } from "../models/Characters";
 const ManScreen = () => {
-  const mans = Characters.filter((c) => {
-    if (c.type === "h") {
-      return c;
-    }
-  });
+  const mans = Characters.filter((c) => c.type === "h" && c);
   return (
     <div className="container mt-3">
       <h1>Mans Screen</h1>

@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
 import { authTypes } from "../types/authTypes";
 
 const Navbar = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
 
   const handleLogout = () => {
     dispatch({ type: authTypes.logout });
-    history.replace("/login");
+    navigate("/login");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
+    <nav className="navbar navbar-expand-lg navbar-dark sticky-top bg-warning">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           DragonBall App

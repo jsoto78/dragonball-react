@@ -1,16 +1,17 @@
 import React from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router-dom";
 import { Characters } from "../models/Characters";
 
-const CharterScreen = ({ history }) => {
+const CharterScreen = () => {
   const { id } = useParams();
   const c = Characters.find((ch) => {
     return ch.id === id;
   });
 
   const src = `/assets/${c.type}-${c.id}.png`;
+  const navigate = useNavigate();
   const handleBack = () => {
-    history.goBack();
+    navigate(-1);
   };
   return (
     <div className="container row mt-3">
